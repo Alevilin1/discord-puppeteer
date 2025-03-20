@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 const app = express();
 const PORT = 3000;
 
+
 async function pegandoDadosSteam(nomeDeUsuario) {
     let steamId;
     const browser = await puppeteer.launch({
