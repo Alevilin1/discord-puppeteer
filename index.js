@@ -8,7 +8,7 @@ const PORT = 3000;
 async function pegandoDadosSteam(nomeDeUsuario) {
     let steamId;
     const browser = await puppeteer.launch({
-        executablePath: await chromium.executablePath(),
+        executablePath: '/usr/bin/google-chrome-stable',
         headless: true,
         args: chromium.args,
     });
