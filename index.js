@@ -1,6 +1,7 @@
 const chromium = require("@sparticuz/chromium-min");
 const express = require("express");
 const puppeteer = require("puppeteer");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -9,7 +10,13 @@ const PORT = process.env.PORT || 4000;
 async function pegandoDadosSteam(nomeDeUsuario) {
     let steamId;
     const browser = await puppeteer.launch({
-        headless: true,
+        executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
+        args: [
+            '--disable-setuid-sandbox',
+            '--no-sandbox',
+            '--single-process',
+            '--no-zygote',
+        ]
     });
     const page = await browser.newPage();
 

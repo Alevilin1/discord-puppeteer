@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@sparticuz/chromium-min": "^133.0.0",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "puppeteer": "^24.4.0"
   }
