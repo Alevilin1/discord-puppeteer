@@ -3,15 +3,13 @@ const express = require("express");
 const puppeteer = require("puppeteer");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 4000;
 
 
 async function pegandoDadosSteam(nomeDeUsuario) {
     let steamId;
     const browser = await puppeteer.launch({
-        executablePath: '/usr/bin/google-chrome-stable',
         headless: true,
-        args: chromium.args,
     });
     const page = await browser.newPage();
 
