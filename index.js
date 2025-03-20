@@ -43,6 +43,7 @@ async function pegandoDadosSteam(nomeDeUsuario) {
 app.get("/steam/:username", async (req, res) => {
     const result = await pegandoDadosSteam(req.params.username);
     res.json(result);
+    console.log("Usuario encontrado com sucesso!");
 });
 
 app.listen(PORT, () => {
