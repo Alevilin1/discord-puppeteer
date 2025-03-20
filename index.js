@@ -1,3 +1,4 @@
+const chromium = require("@sparticuz/chromium-min");
 const express = require("express");
 const puppeteer = require("puppeteer");
 
@@ -6,7 +7,11 @@ const PORT = 3000;
 
 async function pegandoDadosSteam(nomeDeUsuario) {
     let steamId;
-    const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    const browser = await puppeteer.launch({
+        executablePath: await chromium.executablePath(),
+        headless: true,
+        args: chromium.args,
+    });
     const page = await browser.newPage();
 
     try {
