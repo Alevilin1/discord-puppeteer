@@ -46,6 +46,11 @@ app.get("/steam/:username", async (req, res) => {
     console.log("Usuario encontrado com sucesso!");
 });
 
+app.get("/", async (req, res) => {
+    console.log("Pingou");
+    res.send("<h1>Digite /steam/NOMEDOUSUARIO para pegar um id</h1>");
+});
+
 app.listen(PORT, () => {
     console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
